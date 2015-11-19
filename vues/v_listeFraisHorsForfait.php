@@ -16,7 +16,7 @@
                 foreach ($lesFraisHorsForfait as $unFraisHorsForfait) {
                     $libelle = htmlspecialchars($unFraisHorsForfait['libelle']);
                     $date = $unFraisHorsForfait['date'];
-                    $montant = $unFraisHorsForfait['montant'];
+                    $montant = number_format($unFraisHorsForfait['montant'],2, ',', ' ');
                     $id = $unFraisHorsForfait['id'];
                     ?>           
                     <tr>

@@ -167,10 +167,7 @@ function valideInfosFrais($dateFrais, $libelle, $montant) {
                 if(!estDateAJour($dateFrais)){
                     ajouterErreur("date d'enregistrement postérieure à la date du jour");
                 }
-            }
-            
-                
-            
+            }  
         }
     }
     if ($libelle == "") {
