@@ -18,7 +18,7 @@
 class PdoGsb {
 
     private static $serveur = 'mysql:host=localhost';
-    private static $bdd = 'dbname=gsb_fraisrh';
+    private static $bdd = 'dbname=gsb_frais';
     private static $user = 'root';
     private static $mdp = '';
     private static $monPdo;
@@ -306,12 +306,11 @@ class PdoGsb {
      * @return un tableau associatif de clé un mois -aaaamm- et de valeurs l'année et le mois correspondant 
      */
     public function getLesMoisDisponibles($idVisiteur) {
-        $id = 'a131';
         $requete_prepare = PdoGSB::$monPdo->prepare("SELECT fichefrais.mois AS mois "
                 . "FROM fichefrais "
                 . "WHERE fichefrais.idvisiteur = :unIdVisiteur "
                 . "ORDER BY fichefrais.mois desc");
-        $requete_prepare->bindParam(':unIdVisiteur', $id, PDO::PARAM_STR);
+        $requete_prepare->bindParam(':unIdVisiteur', $idVisiteur, PDO::PARAM_STR);
         $requete_prepare->execute();
         $lesMois = array();
         while ($laLigne = $requete_prepare->fetch()) {

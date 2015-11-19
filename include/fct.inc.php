@@ -103,6 +103,16 @@ function estDateDepassee($dateTestee) {
     @list($jourTeste, $moisTeste, $anneeTeste) = explode('/', $dateTestee);
     return ($anneeTeste . $moisTeste . $jourTeste < $AnPasse);
 }
+
+function estDateAJour($dateTestee)
+{
+    $dateActuelle = date("d/m/Y");
+    @list($jour, $mois, $annee) = explode('/', $dateActuelle);
+    $actualDate = $annee . $mois . $jour;
+    @list($jourTeste, $moisTeste, $anneeTeste) = explode('/', $dateTestee);
+    
+    return ($anneeTeste . $moisTeste . $jourTeste < $actualDate);
+}
 /**
  * Vérifie la validité du format d'une date française jj/mm/aaaa 
  * 
@@ -153,6 +163,14 @@ function valideInfosFrais($dateFrais, $libelle, $montant) {
             if (estDateDepassee($dateFrais)) {
                 ajouterErreur("date d'enregistrement du frais dépassé, plus de 1 an");
             }
+            else{
+                if(!estDateAJour($dateFrais)){
+                    ajouterErreur("date d'enregistrement postérieure à la date du jour");
+                }
+            }
+            
+                
+            
         }
     }
     if ($libelle == "") {

@@ -32,11 +32,22 @@
     </table>
 </div>
 <div class="panel panel-info">
-    <div class="panel-heading">Descriptif des éléments hors forfait - <?php echo $nbJustificatifs ?> justificatifs reçus</div>
+    <?php if($nbJustificatifs >1)
+    {
+        ?><div class="panel-heading">Descriptif des éléments hors forfait - <?php echo $nbJustificatifs ?> justificatifs reçus</div><?php
+    }
+     else if($nbJustificatifs == 1)
+    {
+        ?> <div class="panel-heading">Descriptif des éléments hors forfait - <?php echo $nbJustificatifs ?> justificatif reçu</div> <?php
+    }
+    else
+    {
+        ?> <div class="panel-heading">Descriptif des éléments hors forfait - Aucun justificatif reçu</div><?php
+    }?>
     <table class="table table-bordered table-responsive">
         <tr>
             <th class="date">Date</th>
-            <th class="libelle">Libelle</th>
+            <th class="libelle">Libellé</th>
             <th class='montant'>Montant</th>                
         </tr>
         <?php

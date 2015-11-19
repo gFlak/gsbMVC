@@ -1,0 +1,4 @@
+Pour l'actualisation des tables FicheForfait, LignesFraisForfait et LignesFraisHorsForfait, il faut
+- Avoir installé la base gsb_frais  et les tables FraisForfait, Visiteur et Etat
+- Copier le dossier dans le répertoire de publication
+- lancer l'interprétation du script avec le navigateur
